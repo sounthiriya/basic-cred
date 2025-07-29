@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI CRUD</title>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h2>User Management</h2>
+    <form onsubmit="createUser(); return false;">
+        <input type="number" id="id" placeholder="ID" required />
+        <input type="text" id="username" placeholder="Username" required />
+        <button type="submit">Create</button>
+    </form>
+    <hr>
+    <input type="number" id="getId" placeholder="Get User ID" />
+    <button onclick="getUser()">Get</button>
+    <p id="userResult"></p>
+</body>
+</html>

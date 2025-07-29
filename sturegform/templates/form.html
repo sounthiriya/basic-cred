@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form action="/users" method="post">
+        <label>Name:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <!-- <label>:</label><br>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br> -->
+
+        <label>Batch Number:</label><br>
+        <input type="number" name="id" required><br><br>
+
+        <!-- <label>Location:</label><br>
+        <input type="text" name="location" required><br><br> -->
+
+        <input type="submit" value="Register">
+    </form>
+
+<hr>
+<h2>Get User Name by ID</h2>
+<form action="/get-user" method="get">
+    <label>Enter User ID:</label><br>
+    <input type="number" name="user_id" required><br><br>
+    <input type="submit" value="Fetch username">
+</form>
+
+{% if username %}
+    <p><strong>Username:</strong> {{ username }}</p>
+{% elif error %}
+    <p style="color:red;"><strong>Error:</strong> {{ error }}</p>
+{% endif %}
+
+<!-- Update: -->
+
+<hr>
+<h2>Update User Name by ID</h2>
+<form action="/update-user" method="post">
+    <label>Enter User ID:</label><br>
+    <input type="number" name="user_id" required><br><br>
+
+    <label>New Username:</label><br>
+    <input type="text" name="new_username" required><br><br>
+
+    <input type="submit" value="Update User">
+</form>
+
+{% if update_success %}
+    <p style="color:green;"><strong>{{ update_success }}</strong></p>
+{% elif update_error %}
+    <p style="color:red;"><strong>{{ update_error }}</strong></p>
+{% endif %}
+
+<!-- Delete -->
+<hr>
+<h2>Delete User by ID</h2>
+<form action="/delete-user" method="post">
+    <label>Enter User ID to Delete:</label><br>
+    <input type="number" name="delete_user_id" required><br><br>
+
+    <input type="submit" value="Delete User">
+</form>
+
+{% if delete_success %}
+    <p style="color:green;"><strong>{{ delete_success }}</strong></p>
+{% elif delete_error %}
+    <p style="color:red;"><strong>{{ delete_error }}</strong></p>
+{% endif %}
+
+
+</body>
+</html>

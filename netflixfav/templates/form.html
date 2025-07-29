@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Movies/Shows</title>
+</head>
+<body>
+    <h2>Add Favorite Show</h2>
+    <form action="/add" method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br>
+        <label>Favorite Movie/Show:</label><br>
+        <input type="text" name="favorite_show" required><br><br>
+        <input type="submit" value="Add">
+    </form>
+
+    <!-- <h2>Get User Name by ID</h2>
+    <form action="/get-user" method="get">
+            <label>Enter User ID:</label><br>
+            <input type="number" name="user_id" required><br><br>
+            <input type="submit" value="Fetch username">
+    </form>
+    {% if username %}
+    <p><strong>Username:</strong> {{ username }}</p>
+    {% elif error %}
+    <p style="color:red;"><strong>Error:</strong> {{ error }}</p>
+    {% endif %} -->
+
+
+
+    
+    <hr>
+    <h2>Update Favorite Show</h2>
+    <form action="/update" method="post">
+        <label>User ID:</label><br>
+        <input type="number" name="id" required><br>
+        <label>New Favorite Movie/Show:</label><br>
+        <input type="text" name="favorite_show" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+
+    <hr>
+    <h2>List of Users and Favorites</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Username</th><th>Favorite</th><th>Delete</th>
+        </tr>
+        {% for entry in favorites %}
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>{{ entry.username }}</td>
+            <td>{{ entry.favorite_show }}</td>
+            <td><a href="/delete/{{ entry.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
